@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Attendance Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Smart Attendance System</h1>
+    <p>Face recognition based attendance — CSE3010 Computer Vision project</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Today's Summary</h2>
+      <div id="summary">Loading…</div>
+      <button onclick="loadSummary()">Refresh</button>
+    </section>
+
+    <section class="card">
+      <h2>1. Enroll a Student</h2>
+      <input id="name" placeholder="Full name">
+      <input id="roll" placeholder="Roll number">
+      <button onclick="createStudent()">Register</button>
+      <p class="msg" id="enrollMsg"></p>
+    </section>
+
+    <section class="card">
+      <h2>Add Face Sample</h2>
+      <input id="labelId" placeholder="Label ID" type="number">
+      <input id="sampleFile" type="file" accept="image/*">
+      <button onclick="uploadSample()">Upload Sample</button>
+      <p class="msg" id="sampleMsg"></p>
+    </section>
+
+    <section class="card">
+      <h2>Train Model</h2>
+      <button onclick="trainModel()">Train Recognizer</button>
+      <p class="msg" id="trainMsg"></p>
+    </section>
+
+    <section class="card">
+      <h2>2. Recognize / Mark Attendance</h2>
+      <input id="recognizeFile" type="file" accept="image/*">
+      <button onclick="recognize()">Recognize</button>
+      <pre class="msg" id="recognizeMsg"></pre>
+    </section>
+
+    <section class="card">
+      <h2>3. Reports</h2>
+      <a href="/attendance/report.csv" target="_blank">Download CSV</a>
+      &nbsp;|&nbsp;
+      <a href="/attendance/report.pdf" target="_blank">Download PDF</a>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
